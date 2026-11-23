@@ -1,0 +1,17 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Result</h1>
+
+  <% if @included %>
+    <% if @english_word %>
+      <p class="fs-5"><strong>Congratulations!</strong> <%= @word %> is a valid English word! (+<%= @points %> points)</p>
+    <% else %>
+      <p class="fs-5">Sorry but <strong><%= @word %></strong> does not seem to be a valid English word...</p>
+    <% end %>
+  <% else %>
+    <p class="fs-5">Sorry but <strong><%= @word %></strong> can't be built out of <%= @letters.join(", ") %></p>
+  <% end %>
+
+  <p class="text-muted">Total session score: <strong><%= session[:score] %></strong></p>
+
+  <%= link_to "Play again", new_path, class: "text-decoration-none" %>
+</div>
